@@ -1,2 +1,61 @@
-<!--pages/index/index.wxml-->
-<text>pages/index/index.wxml</text>
+
+<searchInput></searchInput>
+<view class="container">
+  <swiper autoplay indicator-dots circular class="swiper" >
+    <swiper-item class="swiper_item" item-id="" wx:for="{{swiperList}}" wx:key="{{item.goods_id}}">
+      <navigator class="" >
+        <image mode="widthFix" class="swiper_image" src="{{item.image_src}}"></image>
+          
+          
+      </navigator>
+    </swiper-item>
+    <view class="pro_list">
+      <view class="" >
+        
+      </view>
+        
+    </view>
+      
+  </swiper>
+  <view class="nav_list" >
+    <view class="nav_item"  wx:for="{{navList}}" >
+      <image src="{{item.image_src}}" mode="widthFix"></image>
+     
+    </view>
+      
+    
+  </view>
+  <view class="pro_list" >
+    <view class="pro_item"  wx:for="{{goodsList}}">
+      <view class="item_title" >
+        {{item.floor_title.name}}
+      </view>
+      <view class="item_content" >
+         <view class="item_left">
+            <navigator>
+              <image src="{{item.product_list[0].image_src}}" mode="widthFix"></image>
+            </navigator>
+         </view>
+         <view class="item_right" >
+            <navigator>
+              <image src="{{item.product_list[1].image_src}}" ></image>
+            </navigator>
+            <navigator>
+              <image src="{{item.product_list[2].image_src}}" ></image>
+            </navigator>
+            <navigator>
+              <image src="{{item.product_list[3].image_src}}" ></image>
+            </navigator>
+            <navigator>
+              <image src="{{item.product_list[4].image_src}}" ></image>
+            </navigator>
+         </view>
+      </view>
+          
+     
+    </view>
+    
+  </view>
+    
+</view>
+  

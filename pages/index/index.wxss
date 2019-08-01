@@ -1,1 +1,42 @@
-/* pages/index/index.wxss */
+.container .swiper {
+  height: 340rpx;
+}
+.container .nav_list {
+  display: flex;
+  margin-top: 20rpx;
+  justify-content: space-around;
+}
+.container .nav_list .nav_item {
+  width: 20%;
+  background-color: #ccc;
+  border-radius: 5rpx;
+}
+.container .pro_list {
+  margin-top: 15rpx;
+}
+.container .pro_list .pro_item navigator {
+  display: block;
+}
+.container .pro_list .pro_item .item_title {
+  background-color: #77eede;
+  padding: 10rpx ;
+  margin: 8rpx 0;
+  color: red;
+}
+.container .pro_list .pro_item .item_content {
+  display: flex;
+}
+.container .pro_list .pro_item .item_content .item_left {
+  width: 250rpx;
+}
+.container .pro_list .pro_item .item_content .item_right {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+}
+.container .pro_list .pro_item .item_content .item_right image {
+  width: 240rpx;
+  margin-left: 10rpx;
+  height: 200rpx;
+}

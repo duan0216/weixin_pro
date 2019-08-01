@@ -1,0 +1,52 @@
+.container{
+  .swiper{
+    height: 340rpx;
+  }
+  .nav_list{
+    display: flex;
+    margin-top: 20rpx;
+    justify-content: space-around;
+    .nav_item{
+      width: 20%;
+      background-color: #ccc;
+      border-radius: 5rpx;
+
+    }
+  }
+  .pro_list{
+    margin-top: 15rpx;
+    .pro_item{
+      
+      navigator{
+        display: block;
+      }
+      .item_title{
+        background-color: #77eede;
+        padding: 10rpx ;
+        margin: 8rpx 0;
+        color:red;
+      }
+      .item_content{
+        display: flex;
+        .item_left{
+          width: 250rpx;
+        
+        }
+        .item_right{
+          flex: 1;
+          
+          display: flex;
+          flex-wrap: wrap;
+          // justify-content: space-between;
+          align-content: space-between;
+          image{
+            width: 240rpx;
+            margin-left: 10rpx;
+            height: 200rpx;
+          }
+        }
+      }
+      
+    }
+  }
+}
