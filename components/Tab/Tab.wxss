@@ -1,0 +1,39 @@
+/* components/Tab/Tab.wxss */
+.Title{
+  display: flex;
+
+}
+.Title .Title_item{
+  flex:1;
+  text-align: center;
+  line-height: 70rpx;
+  height: 70rpx;
+}
+.Title .active{
+  color: red;
+  border-bottom: solid 1px red;
+}
+.Title_content .content_list .list_item{
+  display: flex;
+}
+.list_item image{
+  flex:1
+}
+.list_item .item_Info {
+  flex:2;
+  padding-left: 15rpx;
+  
+
+}
+.list_item .item_Info .item_Info_text{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  color: #000;
+  font-size: 30rpx;
+}
+.list_item .item_Info .price{
+  color: red;
+  font-size: 30rpx;
+}

@@ -2,7 +2,7 @@
 <searchInput></searchInput>
 <view class="container">
   <swiper autoplay indicator-dots circular class="swiper" >
-    <swiper-item class="swiper_item" item-id="" wx:for="{{swiperList}}" wx:key="{{item.goods_id}}">
+    <swiper-item class="swiper_item" item-id="" wx:for="{{swiperList}}" wx:key="{{goods_id}}">
       <navigator class="" >
         <image mode="widthFix" class="swiper_image" src="{{item.image_src}}"></image>
           
@@ -18,7 +18,7 @@
       
   </swiper>
   <view class="nav_list" >
-    <view class="nav_item"  wx:for="{{navList}}" >
+    <view class="nav_item"  wx:for="{{navList}}" wx:key="id">
       <image src="{{item.image_src}}" mode="widthFix"></image>
      
     </view>
@@ -26,7 +26,7 @@
     
   </view>
   <view class="pro_list" >
-    <view class="pro_item"  wx:for="{{goodsList}}">
+    <view class="pro_item"  wx:for="{{goodsList}}" wx:key="id">
       <view class="item_title" >
         {{item.floor_title.name}}
       </view>

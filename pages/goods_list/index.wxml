@@ -1,2 +1,8 @@
 <!--pages/goods_list/index.wxml-->
-<text>pages/goods_list/index.wxml</text>
+<searchInput></searchInput>
+
+  <Tab goods="{{goodsList}}"></Tab>
+
+
+
+

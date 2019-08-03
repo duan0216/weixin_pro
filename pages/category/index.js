@@ -1,66 +1,49 @@
 // pages/category/index.js
+import { request } from "../../request/index";
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    cates_left: [],
+    cates_right: [],
+    scrolltop:0
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  index: 0,
+  Cates: [],
+  getCategory() {
+    return request({ url: "/categories" }).then(res => {
+      let cates = res.data.message;
+      wx.setStorageSync("Cates", { time: Date.now(), cates: cates });
+      return cates;
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  // 点击触发的时间函数
+  changeCate(e) {
+    this.index = e.target.dataset.index;
+    this.setCates(this.Cates, this.index);
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  // 封装设置左右页面数据源的函数
+  setCates(cates, index) {
+    let cates_left = this.Cates.map((e, i) => {
+      return {cat_id: e.cat_id,cat_name: e.cat_name,isActive: i === this.index ? true : false}});
+    let cates_right = this.Cates[this.index].children;
+    this.setData({
+      cates_left,
+      cates_right,
+      scrolltop:0
+    
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  // 页面加载时触发
+  onLoad: function(options) {
+    let storedata = wx.getStorageSync("Cates");
+    if (!storedata || Date.now() - storedata.time > 1000 * 50) {
+      this.getCategory().then(res=>{
+        this.Cates = res
+        this.setCates(this.Cates, this.index)
+      });
+    }else{
+      this.Cates = storedata.cates
+      this.setCates(this.Cates, this.index)
+    }
+   
   }
-})
+});

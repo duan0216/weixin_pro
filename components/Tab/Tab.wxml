@@ -1,0 +1,32 @@
+<!--components/Tab/Tab.wxml-->
+<view class="Title" >
+  <view class="Title_item {{item.isActive?'active':''}}" wx:for="{{TitleList}}" wx:key="id"
+   bindtap="handleItemChange"
+   data-index="{{index}}">
+    {{item.title}}
+  </view>
+  
+</view>
+<view class="Title_content">
+  <view class="content_list"  wx:if="{{currentIndex==0}}">
+    <view class="list_item" wx:for="{{goods}}" wx:key="id">
+      <image class="" src="{{item.goods_small_logo||'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=686516802,2403556179&fm=15&gp=0.jpg'}}" mode="widthFix">  
+      </image>
+       <view class="item_Info">
+         <text class="item_Info_text"> 
+           {{item.goods_name}}
+         </text>
+         <text class="price" > 
+           ￥{{item.goods_price}}
+         </text>  
+       </view>
+    </view>
+  
+  </view>
+  <view class="content_num" wx:if="{{currentIndex==1}}">
+  222222
+  </view>
+  <view class="content_price" wx:if="{{currentIndex==2}}">
+  333333
+  </view>
+</view>

@@ -1,66 +1,52 @@
-// pages/goods_list/index.js
+//Page Object
+import {request} from '../../request/index'
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    goodsList:[]
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  total:0,
+  searchParams:{
+    cid:0,
+    pagenum:1,
+    pagesize:10
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  onLoad: function(options){
+    this.searchParams.cid = options.cid
+    this.getgoodsList()
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  onReachBottom(){   
+    if((this.searchParams.pagenum+1)*this.searchParams.pagesize<=Math.ceil((this.total)/10)*10){
+      this.searchParams.pagenum++
+      this.getgoodsList()
+    }else{
+      wx.showToast({
+        title: '没有更多商品了',
+        icon: 'none',
+        success: (result)=>{
+        },
+      });
+    }
+    
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  getgoodsList(){
+    request({url:'/goods/search',data:this.searchParams})
+    .then(res=>{
+      let goodsList = res.data.message.goods
+      console.log(res)
+      this.total = res.data.message.total
+      goodsList = [...this.data.goodsList,...goodsList]
+      console.log(goodsList)
+      this.setData({
+        goodsList
+      })
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
+  onPullDownRefresh() {
+    this.searchParams.pagenum = 1;
+    this.setData({
+      goodsList:[]
+    })
+    this.getgoodsList();
 
   }
-})
+});

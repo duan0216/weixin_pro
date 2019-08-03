@@ -1,1 +1,38 @@
-/* pages/category/index.wxss */
+.container {
+  display: flex;
+  height: calc(100vh - 70rpx);
+}
+.container .content_left {
+  flex: 1;
+}
+.container .content_left .title_item {
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+.container .content_left .active {
+  border-left: solid 1px red;
+  color: red;
+}
+.container .content_right {
+  flex: 3;
+}
+.container .content_right .cate_item {
+  margin-bottom: 20rpx;
+}
+.container .content_right .cate_item .item_title {
+  text-align: center;
+  font-weight: 700;
+  font-size: 40rpx;
+  background-color: #ccc;
+}
+.container .content_right .cate_item .item_content {
+  display: flex;
+  flex-wrap: wrap;
+}
+.container .content_right .cate_item .item_content .item_content_item {
+  width: 33.33%;
+  text-align: center;
+  border-bottom: 1px dashed #ccc;
+}

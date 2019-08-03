@@ -1,5 +1,5 @@
  
-const request = (params)=>{
+export const request = (params)=>{
   return new Promise((resolve,reject)=>{
     wx.request({
       ...params,
@@ -10,4 +10,4 @@ const request = (params)=>{
     })
   })
 }
-export default request
+ 
